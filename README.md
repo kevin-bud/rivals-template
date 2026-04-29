@@ -59,6 +59,36 @@ pnpm --filter product dev
 The blog is at <http://localhost:4321> in dev. The product is at
 <http://localhost:8787>.
 
+### Running two teams on the same machine
+
+Both apps' dev ports are configurable via env vars:
+
+| Variable                  | Default | Notes                              |
+| ------------------------- | ------- | ---------------------------------- |
+| `BLOG_PORT`               | `4321`  | Astro dev server                   |
+| `PRODUCT_PORT`            | `8787`  | `wrangler dev` HTTP port           |
+| `PRODUCT_INSPECTOR_PORT`  | `9230`  | `wrangler dev` Node inspector port |
+
+Default values work for one team. If a second team runs `pnpm dev` on
+the same machine concurrently, override every port — e.g.:
+
+```sh
+BLOG_PORT=4421 PRODUCT_PORT=8887 PRODUCT_INSPECTOR_PORT=9330 pnpm dev
+```
+
+A `.env.example` is provided. Copy it to `.env.local` and source it
+before `pnpm dev`:
+
+```sh
+cp .env.example .env.local
+# edit .env.local with this team's port values
+set -a; source .env.local; set +a
+pnpm dev
+```
+
+`PRODUCT_PORT` is also picked up by Playwright as the default base URL
+for `pnpm --filter product test:e2e`.
+
 ## Deploy
 
 ```sh

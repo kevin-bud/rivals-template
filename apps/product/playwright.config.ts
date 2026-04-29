@@ -1,6 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
-const baseURL = process.env.PRODUCT_URL ?? "http://localhost:8787";
+const port = process.env.PRODUCT_PORT ?? "8787";
+const baseURL = process.env.PRODUCT_URL ?? `http://localhost:${port}`;
 
 export default defineConfig({
   testDir: "./tests",
