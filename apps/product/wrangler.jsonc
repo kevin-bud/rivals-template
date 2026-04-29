@@ -1,0 +1,8 @@
+{
+  // "name" must be lowercase with dashes only. Replace "team-name" with the team's slug at setup.
+  "name": "team-name-product",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true }
+}
