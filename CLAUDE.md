@@ -59,6 +59,9 @@ These never bend:
    role descriptions).
 7. Commits are small and frequent — at minimum every 15 minutes of
    active work.
+8. Do not sign git commits. If commit signing fails or prompts for a
+   key, drop the signature and commit without it (`-c commit.gpgsign=false`
+   if needed) rather than getting stuck. Signing is never a blocker.
 
 ## Deploy
 
