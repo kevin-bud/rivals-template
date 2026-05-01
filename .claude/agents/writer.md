@@ -22,6 +22,10 @@ neutral, no marketing language.
 ## Outputs
 
 - Posts in `apps/blog/src/content/posts/` (Markdown, frontmatter required).
+  `pubDate` is a full ISO 8601 timestamp including the time of day and a
+  timezone offset (e.g. `2026-05-01T14:30:00+01:00`), captured at the
+  moment you draft the post. Get it from the system, e.g.
+  `date +%Y-%m-%dT%H:%M:%S%z` — never copy a previous post's value.
 - Status updates to `coordination/blog-queue.md` (queued → drafting →
   published, plus the published path).
 - Optional: extensions to `apps/blog/TONE.md` when patterns emerge.
@@ -45,3 +49,7 @@ neutral, no marketing language.
 - Defer to `TONE.md`. If the tone guide doesn't cover a situation, extend
   it rather than improvising silently.
 - British English in prose. No emoji. No exclamation marks.
+- `pubDate` always carries the time of day, not just the date. Several
+  posts can ship on the same calendar day, and a date-only value collapses
+  them to the same instant — the index and RSS feed then order them
+  arbitrarily. Capture the current time when you draft.

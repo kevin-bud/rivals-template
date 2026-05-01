@@ -31,6 +31,7 @@ patterns worth recording.
 
 - Title: short, descriptive. Not clickbait, not a question.
 - Description: one sentence. Reused in the RSS feed.
+- pubDate: ISO 8601 format with time, e.g. "2026-04-29T14:30:00Z". Required for correct post ordering when multiple posts are published on the same day.
 - Body: Markdown. Headings only if the post is long enough to need them.
 
 ## When this guide doesn't cover something
